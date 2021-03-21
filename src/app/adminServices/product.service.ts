@@ -36,7 +36,7 @@ export class ProductService {
   //      localStorage.getItem("token")
   //   );
 
-  //   return this.http.get("http://localhost:3003/transferip", {headers:header});
+    //return this.http.get("https://ecommerceapp-sportswear.herokuapp.com/api/user/profile", {headers:header});
   // }
 
 

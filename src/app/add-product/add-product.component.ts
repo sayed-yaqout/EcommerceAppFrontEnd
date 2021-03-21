@@ -52,7 +52,6 @@ imagePreview;
       },
       (err)=>{
         console.log(err);
-
       });
     }
     else{
