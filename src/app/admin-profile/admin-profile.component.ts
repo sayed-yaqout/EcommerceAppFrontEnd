@@ -7,7 +7,7 @@ import{profile} from './profileData'
   styleUrls: ['./admin-profile.component.css']
 })
 export class AdminProfileComponent implements OnInit {
-profile
+profile=new profile("","");
   constructor(private profilData :profileData) { }
 
   ngOnInit(): void {
@@ -18,11 +18,6 @@ profile
       (error)=>{
         console.log(error)
       });
-
-      this.profile=
-      [
-        new profile("sabrina1" ,"sabrina@gmail.com")
-      ]
   }
 
 }

@@ -1,6 +1,6 @@
 import { Product } from './Product';
 import { Component, Input, OnInit } from '@angular/core';
-import { MessengerService } from '../Services/messenger.service';
+import { MessengerService } from '../services/messenger.service';
 @Component({
   selector: 'app-product',
   templateUrl: './product.component.html',
@@ -17,7 +17,9 @@ export class ProductComponent implements OnInit {
     // var dublicated = false
     if (!this.msg.cashed) {
       // if (this.msg.carts.length == 0) {
-        this.msg.carts.push(this.product)
+        this.msg.carts.push(this.product);
+        console.log(this.product);
+
       //   // this.msg.Quantity.push(1);
       // }
       // else {

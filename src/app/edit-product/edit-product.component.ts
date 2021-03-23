@@ -20,7 +20,10 @@ export class EditProductComponent implements OnInit {
 
   ngOnInit(): void {
     this.product =this.productService.passedProduct;
-    this.imageSrc =this.product.image;
+    if(this.product!=undefined)
+    this.imageSrc = this.product.image;
+
+    this.imagePreview = this.imageSrc;
   }
 
 
@@ -28,13 +31,14 @@ export class EditProductComponent implements OnInit {
     if(title!=""&&price!=0&&sizes!=""&&details!=""&&this.imageSrc!=""){
       const formData = new FormData();
       const id = this.product._id;
-      this.productOut = new Product(this.product._id,title,this.imageSrc,price,details,sizes);
+      // this.productOut = new Product(this.product._id,title,this.imageSrc,price,details,sizes);
+      // formData.append("id",id)
       formData.append("title",title);
       formData.append("productImage",this.imageSrc);
       formData.append("price",price);
       formData.append("details",details);
       formData.append("size",sizes);
-      this.productService.editProduct(id,formData).subscribe((response)=>{
+      this.productService.editProduct(title,formData).subscribe((response)=>{
         if(response){
           console.log(response);
           this.OnDiscard();
@@ -51,7 +55,8 @@ export class EditProductComponent implements OnInit {
   }
 
   OnDiscard(){
-    this.ngOnInit();
+    this.product=new Product (null,"",null,0,"","");
+    this.imageSrc='../../assets/images/uploadImage.png';
   }
 
   imagePreview;

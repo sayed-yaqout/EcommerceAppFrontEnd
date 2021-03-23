@@ -25,13 +25,26 @@ import{ UserHomeComponent } from './user-home/user-home.component';
 import {AddToCartComponent} from './add-to-cart/add-to-cart.component';
 import {OrderHistoryComponent} from './order-history/order-history.component';
 import {UserProfileComponent} from './user-profile/user-profile.component';
+import { UserProductComponent } from './user-product/user-product.component';
 
 
 const routes:Routes = [
-  {path:'',component:GeneralHomeComponent},
+  {path:'generalHome',component:GeneralHomeComponent},
   {path:'signIn',component:SignInComponent},
   {path:'signUp',component:SignUpComponent},
   {path:'help',component:HelpComponent},
+  {
+    path:'', redirectTo: '/generalHome', pathMatch: 'full'
+  },
+  {path:'userhome',
+  component:UserHomeComponent,
+  children:[
+    {path:'userproduct',component:UserProductComponent},
+    {path:'profile',component:UserProfileComponent},
+    {path:'order',component:OrderHistoryComponent},
+    {path:'cart' ,component: AddToCartComponent}
+    ]
+  }
 ]
 
 
@@ -53,6 +66,7 @@ const routes:Routes = [
     AddToCartComponent,
     UserProfileComponent,
     OrderHistoryComponent,
+    UserProductComponent,
   ],
   imports: [
     BrowserModule,

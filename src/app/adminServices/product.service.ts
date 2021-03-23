@@ -55,8 +55,10 @@ export class ProductService {
     return this.httpClient.patch(this.baseUrl+"/edit/"+id,product);
   }
 
-  deleteProduct(id){
-    return this.httpClient.delete(this.baseUrl+"/delete/"+id);
+  deleteProduct(title){
+    console.log(title);
+
+    return this.httpClient.delete(this.baseUrl+"/delete/"+title);
   }
 
   passProductToEdit(_product){

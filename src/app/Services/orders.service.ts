@@ -1,24 +1,30 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
-// import { Observable } from 'rxjs';
-// import { Order } from '../order/Order';
-
 @Injectable({
   providedIn: 'root'
 })
 export class OrdersService {
+  private baseUrl ="http://localhost:3000/api/order/";
+  //private baseUrl ="https://ecommerceapp-sportswear.herokuapp.com/api/order/";
+  getToken()
+    {
+        const token= localStorage.getItem("user-orders-token");
+        if (token==null)
+            return '';
+        else
+            return token;
+    }
 
   constructor(private http: HttpClient) { }
 
-  getOrders(){
-    return this.http.get("https://jsonplaceholder.typicode.com/todos/1");
+  getAllOrders(){
+    return this.http.get(this.baseUrl+"getall");
   }
 
-  // changeStuates(productid,value){
-  //   return this.http.patch(`https://jsonplaceholder.typicode.com/todos/${productid}`,`${value}`);
-  // }
-
+  getOrders(username){
+    return this.http.get(this.baseUrl+"getuserorders/"+username);
+  }
 
 
 }

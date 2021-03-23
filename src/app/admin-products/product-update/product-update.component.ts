@@ -22,14 +22,16 @@ export class ProductUpdateComponent implements OnInit {
   updateProduct(){
     this.productService.passProductToEdit(this.product);
     //here we need to pass the route for edit product component
-    this._router.navigate([]);
+
+    this._router.navigateByUrl('/AdminDashboardComponent/adminEditProducts');
+    // this._router.navigate(['/AdminDashboardComponent/adminEditProducts']);
   }
 
   deleteProduct(){
-    this.productService.deleteProduct(this.product._id).subscribe((data)=>{
+    this.productService.deleteProduct(this.product.title).subscribe((data)=>{
       console.log(data);
-
-    },(err)=>{});
+    },(err)=>{console.log(err);
+    });
 
   }
 

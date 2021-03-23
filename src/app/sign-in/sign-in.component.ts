@@ -1,8 +1,11 @@
+
+
+import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import{ FormControl, FormGroup, Validators }from '@angular/forms';
 import { from } from 'rxjs';
-import {AuthService} from '../Services/auth.service';
-import{TokenStorageService} from '../Services/token-storage.service';
+import {AuthService} from '../services/auth.service';
+import{TokenStorageService} from '../services/token-storage.service';
 
 @Component({
   selector: 'app-sign-in',
@@ -17,7 +20,7 @@ export class SignInComponent implements OnInit {
   errorMessage = '';
   roles: string[] = [];
 
-  constructor(private AuthService:AuthService,private tokenStorage:TokenStorageService) { }
+  constructor(private AuthService:AuthService,private tokenStorage:TokenStorageService,private router:Router) { }
 
   ngOnInit(): void {
     if (this.tokenStorage.getToken()) {
@@ -27,35 +30,38 @@ export class SignInComponent implements OnInit {
   }
 
   onSubmit() {
+
     this.AuthService.login(this.form).subscribe(
       data => {
-        this.tokenStorage.saveToken(data.accessToken);
-        this.tokenStorage.saveUser(data);
+        let myToken=data["token"];
+      localStorage.setItem("token",myToken);
 
-        this.isLoginFailed = false;
-        this.isLoggedIn = true;
-        this.roles = this.tokenStorage.getUser().roles;
-        this.reloadPage();
+      let username=data["userName"];
+      localStorage.setItem("username",username);
+      this.router.navigateByUrl("/userhome")
+      //islam yzabat elroute da
+     // this.router.navigate(['/profile']);
+        // this.tokenStorage.saveToken(data.accessToken);
+        // this.tokenStorage.saveUser(data);
+
+        // this.isLoginFailed = false;
+        // this.isLoggedIn = true;
+        // this.roles = this.tokenStorage.getUser().roles;
+        // this.reloadPage();
       },
       err => {
         this.errorMessage = err.error.message;
         this.isLoginFailed = true;
       }
     );
+    //this.navRouter.navigateByUrl('/userhome');
 
-    // window.location.replace("../user-home/user-home.component.html");
 
   }
 
   reloadPage() {
     window.location.reload();
   }
-
-  // myLoggedForm = new FormGroup({
-  //   mail:new FormControl('',[Validators.required,Validators.pattern('^([A-Z|a-z|0-9](\.|_){0,1})+[A-Z|a-z|0-9]\@([A-Z|a-z|0-9])+((\.){0,1}[A-Z|a-z|0-9]){2}\.[a-z]{2,3}$')]),
-  //   password:new FormControl('',[Validators.required,Validators.pattern('^[A-Za-z0-9]{3,}$')])
-
-  // })
 
 
   //photo

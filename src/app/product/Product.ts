@@ -7,8 +7,8 @@ export class Product{
   public details:string;
   public size:string;
 
-  constructor(id,title,image,price,details,size) {
-    this._id= id;
+  constructor(_id,title,image,price,details,size) {
+    this._id= _id;
     this.title =title;
     this.image =image;
     this.price =price;

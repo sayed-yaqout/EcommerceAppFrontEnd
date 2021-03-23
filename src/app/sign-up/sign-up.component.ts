@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import{ FormControl, FormGroup, Validators }from '@angular/forms';
-import { AuthService } from '../Services/auth.service';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-sign-up',
@@ -26,19 +26,35 @@ export class SignUpComponent implements OnInit {
 
   // })
 
-  
+
   onSubmit() {
-    this.AuthService.register(this.form).subscribe(
+
+    const user={"username":this.form.username,"email":this.form.email,"password":this.form.password,"gender":this.form.gender,"image":"imageProfile"};
+    console.log(user);
+
+    this.AuthService.register(user).subscribe(
       data => {
         console.log(data);
         this.isSuccessful = true;
         this.isSignUpFailed = false;
       },
       err => {
+        console.log(err)
         this.errorMessage = err.error.message;
         this.isSignUpFailed = true;
       }
     );
+    // this.AuthService.register(this.form).subscribe(
+    //   data => {
+    //     console.log(data);
+    //     this.isSuccessful = true;
+    //     this.isSignUpFailed = false;
+    //   },
+    //   err => {
+    //     this.errorMessage = err.error.message;
+    //     this.isSignUpFailed = true;
+    //   }
+    // );
   }
 
   //photo

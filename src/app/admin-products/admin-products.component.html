@@ -28,24 +28,25 @@
   </div>
 </div>
 <hr class="ml-4 mr-4">
+
+
 <div class="container-fluid bg-white">
-  <div class="row p-4 bg-white">
-
-    <div *ngIf="ProductList;else noProduct">
-    <div
-        *ngFor="let product of ProductList"
-        class="productCard bg-light col-md-4 text-center box-shadow-full" >
-      <app-product-update [product]=product></app-product-update>
+  <div *ngIf="ProductList;else noProduct">
+    <div class="row p-4 bg-white">
+      <div
+          *ngFor="let product of ProductList"
+          class="productCard bg-light text-center col-md-4 box-shadow-full"
+          >
+        <app-product-update [product]=product></app-product-update>
+      </div>
     </div>
-
-    </div>
-
-    <ng-template #noProduct class="container bg-dark m-auto">
-      <p class="alert alert-danger w-50 font-weight-bolder text-center">
-        products list is empty
-      </p>
-    </ng-template>
   </div>
+
+  <ng-template #noProduct class="container bg-dark m-auto">
+    <p class="alert alert-danger w-50 font-weight-bolder text-center">
+      products list is empty
+    </p>
+  </ng-template>
 </div>
 
 

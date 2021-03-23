@@ -1,7 +1,6 @@
 import { Product } from '../product/Product';
 import { Component, OnInit,Output,EventEmitter, Input } from '@angular/core';
 import { MessengerService } from '../services/messenger.service';
-import{bootstrap} from '../../../node_modules/bootstrap'
 
 
 @Component({

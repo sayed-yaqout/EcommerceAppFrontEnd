@@ -1,14 +1,15 @@
-import { Product } from './../product/Product';
-import { ProductService } from './../adminServices/product.service';
-import { Component, EventEmitter, OnDestroy, OnInit, Output } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ProductService } from '../adminServices/product.service';
+import { Product } from '../product/Product';
 
 @Component({
-  selector: 'app-admin-products',
-  templateUrl: './admin-products.component.html',
-  styleUrls: ['./admin-products.component.css']
+  selector: 'app-user-product',
+  templateUrl: './user-product.component.html',
+  styleUrls: ['./user-product.component.css']
 })
-export class AdminProductsComponent implements OnInit ,OnDestroy {
+export class UserProductComponent implements OnInit {
+
   products:Product[];
   textSearh:string="";
   ProductList:Product[];
@@ -56,7 +57,7 @@ export class AdminProductsComponent implements OnInit ,OnDestroy {
 
   navigateToAddProduct(){
     //here we need to pass the route for add product page
-    this._router.navigateByUrl("/AdminDashboardComponent/adminAddProducts");
+    this._router.navigate([]);
   }
 
   ngOnDestroy(): void {

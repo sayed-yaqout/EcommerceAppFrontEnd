@@ -1,4 +1,4 @@
-import {Order}from './Order';
+import {Order}from './order';
 import { Component, Input, OnInit } from '@angular/core';
 
 @Component({

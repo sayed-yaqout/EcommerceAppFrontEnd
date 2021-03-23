@@ -17,7 +17,7 @@ import { CartToOrderService } from '../services/cart-to-order.service';
 })
 export class AddToCartComponent implements OnInit {
   date:Date
-order:Order
+  order;
   cartItems = [
   ];
   cartTotal = 0;
@@ -38,6 +38,9 @@ order:Order
     // this.msg.getMessage().toPromise().then((product:Product)=>{
     //   this.addProductToCart(product)
   // })
+
+  console.log(this.cartItems);
+
 
   }
   getProductTitles()
@@ -68,12 +71,12 @@ this.cartItems.forEach(
   cashOut()
   {
     this.getProductTitles()
-      this.order=new Order(0,"sayed"/**to be changed to user name */,
-      this.getDate(),
-      this.cartTotal,
-      this.titles,
-      "pending")
-      this.payment.makeOrder(this.order)//make order and send it to service
+      this.order={username:"sayed",date:this.getDate(),totalPrice:this.cartTotal,titles:this.titles,status:"pending"};
+      this.payment.makeOrder(this.order).subscribe(res=>{
+        console.log(res);
+      },(err)=> console.log(err)
+      )
+      //make order and send it to service
       this.msg.cashed=true
       this.cashed=true
       console.log(this.order)

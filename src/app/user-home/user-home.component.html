@@ -4,16 +4,14 @@
   </button>
   <div class="collapse navbar-collapse justify-content-start" id="navbarNavAltMarkup">
     <div class="navbar-nav justify-content-lg-start">
-      <a class="nav-link active navItem" href="#">HOME</a>
-      <a class="nav-link active navItem" href="#">SHOP</a>
-      <a class="nav-link active navItem" href="#">CATEGORIES</a>
-      <a class="nav-link active navItem" href="#">PAGES</a>
-      <a class="nav-link active navItem" href="#">CONTACT US</a>
-
-      <a class="nav-link active navItem" href="#">
+      <a class="nav-link active navItem" [routerLinkActiveOptions]='{exact:true}' routerLinkActive="text-danger" [routerLink]="['./userproduct']">Products</a>
+      <a class="nav-link active navItem"  routerLinkActive="text-danger"  [routerLink]="['./profile']">profile</a>
+      <a class="nav-link active navItem"  routerLinkActive="text-danger"  [routerLink]="['./order']">Order</a>
+      <a class="nav-link active navItem"  routerLinkActive="text-danger"  [routerLink]="['./cart']">
         <i class="fa fa-shopping-cart mt-2" aria-hidden="true">  </i>
         CART
       </a>
+      <a class="nav-link active navItem" routerLinkActive="text-danger" [routerLink]="['./']">signOut</a>
 
       <form class="form-inline marginLeft">
         <input class="form-control mr-sm-2 ml-5" type="search" placeholder="Search" aria-label="Search">
@@ -23,6 +21,8 @@
     </div>
   </div>
 </nav>
+
+<router-outlet></router-outlet>
 
 
 <!-- <nav class="navbar navbar-expand-lg navbar-light bg-primary container-fluid">
@@ -83,7 +83,7 @@
   </div>
 
 </div> -->
-
+<!--
 <div class="container">
   <div class="text-primary text-center">
     <h1>All Products</h1>
@@ -136,7 +136,7 @@
         <app-product [product]=child></app-product>
       </div>
     </div>
-  </section>
+  </section> -->
   <!-- <button type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="top" title="Tooltip on top">
     Tooltip on top
   </button>
