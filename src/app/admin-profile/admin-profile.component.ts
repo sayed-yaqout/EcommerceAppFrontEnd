@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { profileData } from 'src/app/services/profile.service';
-import{profile} from './profileData'
+import{Profile} from './profile'
 @Component({
   selector: 'app-admin-profile',
   templateUrl: './admin-profile.component.html',
   styleUrls: ['./admin-profile.component.css']
 })
 export class AdminProfileComponent implements OnInit {
-  profile;
+  profile:Profile;
   constructor(private profilData :profileData) { }
 
   ngOnInit(): void {

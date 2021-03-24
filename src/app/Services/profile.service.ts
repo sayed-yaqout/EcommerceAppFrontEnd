@@ -3,15 +3,13 @@ import { Injectable } from '@angular/core';
 import { HttpClient , HttpClientModule, HttpHeaders } from '@angular/common/http';
 import { Subject } from 'rxjs';
 
-// import { Observable } from 'rxjs';
-// import{profile} from '../admin-profile/profileData'
 
 @Injectable({
     providedIn: 'root'
   })
   export class profileData{
 
-    //const baseUrl= "http://localhost:3000/api/user/profile";
+    //private baseUrl= "http://localhost:3000/api/user/profile";
     private baseUrl = 'https://ecommerceapp-sportswear.herokuapp.com/user/profile';
 
      Profiledata = new Subject();
@@ -29,7 +27,7 @@ import { Subject } from 'rxjs';
          return this.http.get(this.baseUrl,{headers:{authorization:this.getToken()}})
       }
 
-    //const baseUrl= "http://localhost:3000/api/dmin/profile";
+    //const baseUrl= "http://localhost:3000/api/admin/profile";
      private adminBaseUrl = 'https://ecommerceapp-sportswear.herokuapp.com/admin/profile';
 
       getAdminData(){

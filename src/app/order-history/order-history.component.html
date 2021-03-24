@@ -7,10 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
 </head>
-
 <body>
-
-
   <div class="container">
     <div class="row">
       <div class="col-md">
@@ -29,19 +26,17 @@
           <tbody>
             <tr *ngFor="let order of orders;  let i = index">
               <th scope="row">{{i+1}}</th>
-              <td>{{order.orderId}}</td>
+              <td>{{order._id}}</td>
               <td>{{order.productName}}</td>
               <td>{{order.price}}</td>
               <td>{{order.status.toUpperCase()}}</td>
-              <td><i class="fas fa-eye"></i></td>
-            </tr>
 
+              <td *ngif="order.status==pending" (click)="delete(order._id)"><i class="fas fa-trash"></i></td>
+            </tr>
           </tbody>
         </table>
       </div>
     </div>
   </div>
-
 </body>
-
 </html>

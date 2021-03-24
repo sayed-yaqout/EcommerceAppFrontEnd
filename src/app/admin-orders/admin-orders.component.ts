@@ -21,24 +21,23 @@ export class AdminOrdersComponent implements OnInit {
     (error)=>{
       console.log(error)
     });
-
-
-    this.orders=
-    [
-      new Order(1,"sabrena1","2/23/2000",2444,["prodectname1"],"pending"),
-      new Order(1,"sabrena2","2/23/2000",2444,["prodectname1"],"pending"),
-      new Order(1,"sabrena3","2/23/2000",2444,["prodectname1"],"pending")
-    ]
   }
 
 
-  change(userId,btnAccept,btnDelete,value){
-    if(value){
 
-      btnAccept.disabled=true
-        btnDelete.disabled=true
-        let order= this.orders.find(i=>i.userId==userId)
-        order.status=value.toUpperCase()
+  change(id,value){
+    if(value){
+      this.orderService.changeStates(id,value).subscribe((res)=>{
+        let x =res["success"];
+        if(x){
+          console.log(x);
+          this.ngOnInit();
+        }
+      }
+      ,(error)=>{
+        console.log(error);
+
+      });
     }
   }
 }

@@ -21,7 +21,19 @@ export class OrderHistoryComponent implements OnInit {
     (error)=>{
       console.log(error)
     });
+  }
 
+  delete(id){
+    this.orderService.deleteOrder(id).subscribe(
+      (respond)=>{
+        //this.orderService=respond["message"];
+        console.log(respond);
+        this.ngOnInit();
+      },
+      (error)=>{
+        console.log(error)
+      }
+    )
   }
 
 

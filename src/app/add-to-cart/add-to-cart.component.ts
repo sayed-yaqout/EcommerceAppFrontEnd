@@ -71,7 +71,7 @@ this.cartItems.forEach(
   cashOut()
   {
     this.getProductTitles()
-      this.order={username:"sayed",date:this.getDate(),totalPrice:this.cartTotal,titles:this.titles,status:"pending"};
+      this.order={username:localStorage.getItem("username"),date:this.getDate(),totalPrice:this.cartTotal,titles:this.titles,status:"pending"};
       this.payment.makeOrder(this.order).subscribe(res=>{
         console.log(res);
       },(err)=> console.log(err)

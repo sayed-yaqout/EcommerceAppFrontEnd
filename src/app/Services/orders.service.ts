@@ -5,8 +5,8 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class OrdersService {
-  private baseUrl ="http://localhost:3000/api/order/";
-  //private baseUrl ="https://ecommerceapp-sportswear.herokuapp.com/api/order/";
+  //private baseUrl ="http://localhost:3000/api/order/";
+  private baseUrl ="https://ecommerceapp-sportswear.herokuapp.com/api/order/";
   getToken()
     {
         const token= localStorage.getItem("user-orders-token");
@@ -24,6 +24,15 @@ export class OrdersService {
 
   getOrders(username){
     return this.http.get(this.baseUrl+"getuserorders/"+username);
+  }
+
+
+  deleteOrder(id){
+    return this.http.delete(this.baseUrl+"delete/"+id);
+  }
+
+  changeStates(id,status){
+    return this.http.patch(this.baseUrl+"adminedit/"+id,status);
   }
 
 

@@ -7,19 +7,6 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class ProductService {
-  //products:Product[];
-
-  // =[
-  //   new Product(12,"TShirt-One","../../assets/images/9696@2x.png",55,"this a summer t-shirt and come with 2 colors black and yellow","m-l-xl-xxl-xxxl"),
-  //   new Product(12,"TShirt-One","../../assets/images/9696@2x.png",55,"this a summer t-shirt and come with 2 colors black and yellow","m-l-xl-xxl-xxxl"),
-  //   new Product(12,"TShirt-One","../../assets/images/9696@2x.png",55,"this a summer t-shirt and come with 2 colors black and yellow","m-l-xl-xxl-xxxl"),
-  //   new Product(12,"TShirt-One","../../assets/images/24057.png",55,"this a summer t-shirt and come with 2 colors black and yellow","m-l-xl-xxl-xxxl"),
-  //   new Product(12,"TShirt-One","../../assets/images/24057.png",55,"this a summer t-shirt and come with 2 colors black and yellow","m-l-xl-xxl-xxxl"),
-  //   new Product(12,"TShirt-One","../../assets/images/24057.png",55,"this a summer t-shirt and come with 2 colors black and yellow","m-l-xl-xxl-xxxl"),
-  //   new Product(12,"TShirt-Two","../../assets/images/24057.png",200,"this a summer t-shirt and come with 2 colors black and yellow","m-l-xl-xxl-xxxl")
-
-  // ];
-
   myObservable:Observable<Array<Product>> ;
   //private baseUrl:string= "http://localhost:3000/api/product";
   private baseUrl:string= "https://ecommerceapp-sportswear.herokuapp.com/api/product";
