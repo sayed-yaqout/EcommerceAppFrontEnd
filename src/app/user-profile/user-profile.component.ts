@@ -9,7 +9,7 @@ import { profile } from '../admin-profile/profileData';
 })
 export class UserProfileComponent implements OnInit {
 
-  profile=new profile("","");
+  profile;
   constructor(private profilData :profileData) { }
 
   ngOnInit(): void {

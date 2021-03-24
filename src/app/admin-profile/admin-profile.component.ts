@@ -7,13 +7,14 @@ import{profile} from './profileData'
   styleUrls: ['./admin-profile.component.css']
 })
 export class AdminProfileComponent implements OnInit {
-profile=new profile("","");
+  profile;
   constructor(private profilData :profileData) { }
 
   ngOnInit(): void {
-    this.profilData.getData().subscribe(
+    this.profilData.getAdminData().subscribe(
       (respond)=>{
         console.log(respond)
+        this.profile=respond["admin"]
       },
       (error)=>{
         console.log(error)

@@ -29,3 +29,15 @@ top: 15px;
 }
 
 
+.forImage{
+    width: 100%;
+    overflow: hidden;
+}
+
+.forDivImg{
+  width: auto;
+  height: 300px;
+  overflow: hidden ;
+}
+
+

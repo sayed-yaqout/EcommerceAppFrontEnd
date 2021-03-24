@@ -26,6 +26,9 @@ import {AddToCartComponent} from './add-to-cart/add-to-cart.component';
 import {OrderHistoryComponent} from './order-history/order-history.component';
 import {UserProfileComponent} from './user-profile/user-profile.component';
 import { UserProductComponent } from './user-product/user-product.component';
+import { AdminSignInComponent } from './admin-sign-in/admin-sign-in.component';
+import { SignOutComponent } from './sign-out/sign-out.component';
+import { AdminSignoutComponent } from './admin-signout/admin-signout.component';
 
 
 const routes:Routes = [
@@ -33,6 +36,7 @@ const routes:Routes = [
   {path:'signIn',component:SignInComponent},
   {path:'signUp',component:SignUpComponent},
   {path:'help',component:HelpComponent},
+  {path:'adminSignIn',component:AdminSignInComponent},
   {
     path:'', redirectTo: '/generalHome', pathMatch: 'full'
   },
@@ -42,7 +46,8 @@ const routes:Routes = [
     {path:'userproduct',component:UserProductComponent},
     {path:'profile',component:UserProfileComponent},
     {path:'order',component:OrderHistoryComponent},
-    {path:'cart' ,component: AddToCartComponent}
+    {path:'cart' ,component: AddToCartComponent},
+    {path:'user-signout',component:SignOutComponent}
     ]
   }
 ]
@@ -67,6 +72,9 @@ const routes:Routes = [
     UserProfileComponent,
     OrderHistoryComponent,
     UserProductComponent,
+    AdminSignInComponent,
+    SignOutComponent,
+    AdminSignoutComponent,
   ],
   imports: [
     BrowserModule,

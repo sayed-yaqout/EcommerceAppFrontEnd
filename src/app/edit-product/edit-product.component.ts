@@ -1,13 +1,13 @@
 import { ProductService } from './../adminServices/product.service';
 import { Product } from './../product/Product';
-import { Component, ElementRef, Input, OnInit, Output, ViewChild } from '@angular/core';
+import { Component, ElementRef, Input, OnInit, Output, ViewChild, OnDestroy } from '@angular/core';
 
 @Component({
   selector: 'app-edit-product',
   templateUrl: './edit-product.component.html',
   styleUrls: ['./edit-product.component.css']
 })
-export class EditProductComponent implements OnInit {
+export class EditProductComponent implements OnInit ,OnDestroy {
 
   imageSrc;
   product:Product= new Product(null,"",null,0,"","");
@@ -17,6 +17,9 @@ export class EditProductComponent implements OnInit {
   constructor(private productService:ProductService) {
 
    }
+  ngOnDestroy(): void {
+    this.OnDiscard();
+  }
 
   ngOnInit(): void {
     this.product =this.productService.passedProduct;
@@ -71,5 +74,4 @@ export class EditProductComponent implements OnInit {
       reader.readAsDataURL(file);
     }
   }
-
 }
