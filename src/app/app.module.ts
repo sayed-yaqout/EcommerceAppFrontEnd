@@ -1,4 +1,12 @@
+import { UserService } from './services/user.service';
+import { TokenStorageService } from './services/token-storage.service';
+import { profileData } from 'src/app/services/profile.service';
+import { OrdersService } from 'src/app/services/orders.service';
+import { MessengerService } from 'src/app/services/messenger.service';
+import { CartToOrderService } from './services/cart-to-order.service';
+import { AuthService } from './services/auth.service';
 import { ProductService } from './adminServices/product.service';
+
 import { HelpComponent } from './help/help.component';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -15,7 +23,6 @@ import { AdminProductsComponent } from './admin-products/admin-products.componen
 import { ProductUpdateComponent } from './admin-products/product-update/product-update.component';
 import { HttpClientModule} from '@angular/common/http';
 import {AppRoutingModule} from './app-routing.module';
-import {AppUserRoutingModule} from './app-userRouting.modules'
 
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
 import {AdminProfileComponent} from './admin-profile/admin-profile.component';
@@ -85,7 +92,8 @@ const routes:Routes = [
     //AppUserRoutingModule,
     RouterModule.forRoot(routes)
   ],
-  providers: [ProductService],
+  providers: [ProductService,AuthService,CartToOrderService,
+    MessengerService,OrdersService,profileData,TokenStorageService,UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

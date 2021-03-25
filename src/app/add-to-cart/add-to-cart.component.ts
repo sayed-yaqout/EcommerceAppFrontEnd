@@ -1,15 +1,8 @@
-import { DatePipe, formatDate, getLocaleDateTimeFormat } from '@angular/common';
-import { isNgTemplate } from '@angular/compiler';
-import { Component, OnInit } from '@angular/core';
+
+import { Component, Inject, OnInit } from '@angular/core';
 import { MessengerService } from 'src/app/services/messenger.service'
-import { Order } from '../order/order';
-import { Product } from '../product/Product';
 import { CartToOrderService } from '../services/cart-to-order.service';
-//import { NgxGalleryOptions, NgxGalleryImage, NgxGalleryAnimation } from 'ngx-gallery';
-//import { ProductInfo } from 'src/app/interface/ec-template.interface';
-//import { DataService } from 'src/app/services/data.service';
-//import { ActivatedRoute } from '@angular/router';
-//import { DropdownItem } from 'src/app/interface/universal.interface';
+
 @Component({
   selector: 'app-add-to-cart',
   templateUrl: './add-to-cart.component.html',
@@ -25,7 +18,7 @@ export class AddToCartComponent implements OnInit {
 
   cashed=false
 
-  constructor(private msg: MessengerService,private payment:CartToOrderService) { }
+  constructor(@Inject("") private msg: MessengerService,private payment:CartToOrderService) { }
   ngOnInit()
    {
      if(!this.msg.cashed)
